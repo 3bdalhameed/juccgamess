@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from "react";
-import HackedBg from "./img/signs-that-youve-been-hacked.jpeg"; // use your uploaded image
+import HackedBg from "./img/signs-that-youve-been-hacked.jpeg";
 
 const GotHacked = () => {
+  const [showLoader, setShowLoader] = useState(true);
   const [text, setText] = useState("HACKED");
   const [glitch, setGlitch] = useState("");
+
+  useEffect(() => {
+    const loaderTimeout = setTimeout(() => {
+      setShowLoader(false);
+    }, 3000); // 3 seconds fake loading
+
+    return () => clearTimeout(loaderTimeout);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,6 +30,16 @@ const GotHacked = () => {
     return () => clearInterval(interval);
   }, [text]);
 
+  // Loader animation
+  if (showLoader) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-green-400 font-mono text-4xl animate-pulse tracking-widest">
+        Initializing exploit...
+      </div>
+    );
+  }
+
+  // Main hacked screen
   return (
     <div
       className="min-h-screen w-full bg-black flex flex-col items-center justify-center relative overflow-hidden"
@@ -36,7 +55,7 @@ const GotHacked = () => {
         {glitch}
       </h1>
 
-      <p className="z-10 mt-8 text-white opacity-80 font-mono animate-pulse">
+      <p className="z-10 mt-8 text-white text-4xl opacity-80 font-mono animate-pulse">
         Everything is under our control... 💀
       </p>
     </div>
