@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 
 const QRPrizeTrap = () => {
-  const redirectUrl = "https://juccgamess-git-main-3bdalhameeds-projects.vercel.app/gothacked";
+  const redirectUrl = "https://juccgamess-git-main-3bdalhameeds-projects.vercel.app/gg";
 
 
   return (
