@@ -16,7 +16,7 @@ const QRPrizeTrap = () => {
       </h1>
 
       <p className="text-2xl md:text-3xl mt-4 text-white animate-pulse z-10">
-        YOU JUST WON AN iPHONE 16 <br /> OR $1,000,000 CASH 💰
+        💵💰💵 SCAN THIS CODE TO WIN WITH US 💵💰💵
       </p>
 
       <div className="bg-white p-6 rounded-3xl shadow-2xl mt-8 z-10">
