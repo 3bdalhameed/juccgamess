@@ -15,7 +15,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<MyTest />} />
                     <Route path="/qr" element={<Qr />} />
-                    <Route path="/gothacked" element={<GotHacked />} />
+                    <Route path="/gg" element={<GotHacked />} />
                 </Routes>
             </div>
         </Router>
