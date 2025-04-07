@@ -2,7 +2,7 @@ import React from "react";
 import { QRCodeCanvas } from "qrcode.react";
 
 const QRCodeTrap = () => {
-  const redirectUrl = "https://gamejucc.vercel.app/gothacked";
+  const redirectUrl = "https://juccgamess-git-main-3bdalhameeds-projects.vercel.app/gothacked";
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black text-green-400 font-mono relative overflow-hidden">
