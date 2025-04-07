@@ -1,33 +1,46 @@
-import React from "react";
-import { QRCodeCanvas } from "qrcode.react";
+import React, { useEffect, useState } from "react";
+import HackedBg from "./img/signs-that-youve-been-hacked.jpeg"; // use your uploaded image
 
-const QRCodeTrap = () => {
-  const redirectUrl = "https://juccgamess-git-main-3bdalhameeds-projects.vercel.app/gothacked";
+const GotHacked = () => {
+  const [text, setText] = useState("HACKED");
+  const [glitch, setGlitch] = useState("");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const chars = "01▓▒░!@#$%&<>|\\/";
+      const glitchy = text
+        .split("")
+        .map((char) =>
+          Math.random() > 0.3
+            ? chars[Math.floor(Math.random() * chars.length)]
+            : char
+        )
+        .join("");
+      setGlitch(glitchy);
+    }, 100);
+    return () => clearInterval(interval);
+  }, [text]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-green-400 font-mono relative overflow-hidden">
-      {/* Animated Code Rain */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="w-full h-full bg-[radial-gradient(#0f0_1px,transparent_1px)] bg-[size:10px_10px] opacity-5 animate-pulse" />
-        <div className="absolute inset-0 bg-black bg-opacity-70" />
-      </div>
+    <div
+      className="min-h-screen w-full bg-black flex flex-col items-center justify-center relative overflow-hidden"
+      style={{
+        backgroundImage: `url(${HackedBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <div className="absolute inset-0 bg-black opacity-70 z-0" />
 
-      {/* Main Content */}
-      <div className="z-10 text-center p-6">
-        <h1 className="text-4xl md:text-5xl font-bold mb-6 animate-pulse text-green-500 drop-shadow">
-          SCAN THE CODE... OR BE HACKED 💀
-        </h1>
+      <h1 className="z-10 text-6xl md:text-8xl font-bold text-red-600 animate-pulse tracking-widest drop-shadow-[0_0_15px_rgba(255,0,0,0.8)]">
+        {glitch}
+      </h1>
 
-        <div className="bg-white p-6 rounded-xl shadow-xl inline-block">
-          <QRCodeCanvas value={redirectUrl} size={256} level="H" />
-        </div>
-
-        <p className="mt-6 text-md md:text-lg text-green-300 animate-pulse opacity-80">
-          Hackers don’t knock... they inject.
-        </p>
-      </div>
+      <p className="z-10 mt-8 text-white opacity-80 font-mono animate-pulse">
+        Everything is under our control... 💀
+      </p>
     </div>
   );
 };
 
-export default QRCodeTrap;
+export default GotHacked;
