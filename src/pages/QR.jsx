@@ -1,46 +1,33 @@
-import React, { useEffect, useState } from "react";
-import HackedBg from "./img/signs-that-youve-been-hacked.jpeg"; // use your uploaded image
+import React, { useEffect } from "react";
+import { QRCodeCanvas } from "qrcode.react";
 
-const GotHacked = () => {
-  const [text, setText] = useState("HACKED");
-  const [glitch, setGlitch] = useState("");
+const QRPrizeTrap = () => {
+  const redirectUrl = "https://juccgamess-git-main-3bdalhameeds-projects.vercel.app/gothacked";
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const chars = "01▓▒░!@#$%&<>|\\/";
-      const glitchy = text
-        .split("")
-        .map((char) =>
-          Math.random() > 0.3
-            ? chars[Math.floor(Math.random() * chars.length)]
-            : char
-        )
-        .join("");
-      setGlitch(glitchy);
-    }, 100);
-    return () => clearInterval(interval);
-  }, [text]);
 
   return (
-    <div
-      className="min-h-screen w-full bg-black flex flex-col items-center justify-center relative overflow-hidden"
-      style={{
-        backgroundImage: `url(${HackedBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <div className="absolute inset-0 bg-black opacity-70 z-0" />
+    <div className="min-h-screen bg-gradient-to-br from-yellow-300 to-pink-500 flex flex-col items-center justify-center text-center text-white font-bold px-4 relative overflow-hidden">
+      {/* Confetti background animation */}
+      <div className="absolute inset-0 bg-[url('https://i.gifer.com/7efs.gif')] bg-cover opacity-30 blur-sm z-0" />
 
-      <h1 className="z-10 text-6xl md:text-8xl font-bold text-red-600 animate-pulse tracking-widest drop-shadow-[0_0_15px_rgba(255,0,0,0.8)]">
-        {glitch}
+      {/* Flashing "YOU WON" Banner */}
+      <h1 className="text-4xl md:text-5xl text-yellow-200 animate-bounce drop-shadow z-10">
+        🎉 CONGRATULATIONS 🎉
       </h1>
 
-      <p className="z-10 mt-8 text-white opacity-80 font-mono animate-pulse">
-        Everything is under our control... 💀
+      <p className="text-2xl md:text-3xl mt-4 text-white animate-pulse z-10">
+        YOU JUST WON AN iPHONE 16 <br /> OR $1,000,000 CASH 💰
+      </p>
+
+      <div className="bg-white p-6 rounded-3xl shadow-2xl mt-8 z-10">
+        <QRCodeCanvas value={redirectUrl} size={220} level="H" />
+      </div>
+
+      <p className="mt-6 text-md md:text-lg text-white z-10 animate-pulse">
+        Scan now to claim your reward...
       </p>
     </div>
   );
 };
 
-export default GotHacked;
+export default QRPrizeTrap;
