@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MyTest from "./pages/Main";
 import Qr from "./pages/QR";
 import GotHacked from "./pages/GotHacked";
+import Try from "./pages/try";
 
 import "./App.css";
 
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/" element={<MyTest />} />
                     <Route path="/gg" element={<GotHacked />} />
                     <Route path="/qr" element={<Qr />} />
+                    <Route path="/try" element={<Try />} />
                 </Routes>
             </div>
         </Router>
