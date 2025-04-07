@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MyTest from "./pages/Main";
 import Qr from "./pages/QR";
-import GotHacked from "./pages/GotHacked";
+import GotHacked from "./pages/GG";
 import Try from "./pages/try";
 
 import "./App.css";
